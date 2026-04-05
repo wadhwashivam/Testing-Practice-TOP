@@ -1,4 +1,4 @@
-import { calculator, capitalize } from "./index.js";
+import { analyzeArray, calculator, capitalize } from "./index.js";
 import { reverse } from "./index.js";
 
 import { caesarCipher } from "./index.js";
@@ -46,3 +46,12 @@ test('caesarCipher shift check', () => {
 test('caesarCipher negative shift', () => {
     expect(caesarCipher('abc', -1)).toBe('zab');
 })
+
+test('Analyze Array', ()=>{
+    expect(analyzeArray([1,8,3,4,2,6])).toEqual({
+        average: 4,
+        min: 1,
+        max: 8,
+        length:6
+    });
+});
