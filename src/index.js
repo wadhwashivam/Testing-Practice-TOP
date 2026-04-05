@@ -28,3 +28,28 @@ export const calculator = {
     multiply: (a,b) => a*b,
     divide: (a,b) => a/b,
 }
+
+
+export function caesarCipher(str, num){
+    let result = "";
+
+    for(let i =0; i< str.length; i++){
+        let char = str[i];
+
+        if (char>= 'a' && char<= 'z'){
+            let code = char.charCodeAt(0)-97;
+            let shifted = (code + num + 26) % 26;
+            result += String.fromCharCode(shifted+97);
+        }
+        else if (char>='A' && char<='Z'){
+            let code = char.charCodeAt(0)-65;
+            let shifted = (code + num+ 26)%26;
+            result += String.fromCharCode(shifted+65);
+        }
+        else{
+            result += char;
+        }
+    }
+
+    return result;
+}

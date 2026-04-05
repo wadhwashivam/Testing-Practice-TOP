@@ -1,6 +1,8 @@
 import { calculator, capitalize } from "./index.js";
 import { reverse } from "./index.js";
 
+import { caesarCipher } from "./index.js";
+
 test('Capitalize the first character', () => {
     expect(capitalize('hello')).toBe('Hello');
 });
@@ -24,3 +26,23 @@ test('Calculator method multiply', () => {
 test('Calculator method divide', () => {
     expect(calculator.divide(4,4)).toBe(1);
 });
+
+test('caesarCipher wrapping from z to a', () => {
+    expect(caesarCipher('xyz',3)).toBe('abc');
+})
+
+test('caesarCipher case preservation', () => {
+    expect(caesarCipher('HeLLo', 3)).toBe('KhOOr');
+})
+
+test('caesarCipher punctuation', () => {
+    expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!');
+})
+
+test('caesarCipher shift check', () => {
+    expect(caesarCipher('M@n', 5)).toBe('R@s');
+})
+
+test('caesarCipher negative shift', () => {
+    expect(caesarCipher('abc', -1)).toBe('zab');
+})
